@@ -2,6 +2,7 @@ import React from "react";
 import { FaAngleDoubleRight } from "react-icons/fa";
 import { useState, useEffect } from "react";
 const API_URL = "https://course-api.com/react-tabs-project";
+
 const App = () => {
   const [apiData, setApiData] = useState();
   const [isLoading, setIsLoading] = useState(true);
@@ -17,9 +18,13 @@ const App = () => {
       console.log(error);
     }
   };
+
+
   useEffect(() => {
     fetchData();
   }, []);
+
+
   if (isLoading) {
     return (
       <section className="section loading">
