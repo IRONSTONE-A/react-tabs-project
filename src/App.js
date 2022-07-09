@@ -19,11 +19,9 @@ const App = () => {
     }
   };
 
-
   useEffect(() => {
     fetchData();
   }, []);
-
 
   if (isLoading) {
     return (
@@ -32,19 +30,32 @@ const App = () => {
       </section>
     );
   }
-  console.log(apiData);
+  // console.log(apiData);
   const { company, dates, duties, id, title } = apiData[value];
   // console.log(company);
-  return <div>
-  </div>;
-};
+  return (
+  <section className="section">
+    <div className="title">
+      <h2>Experience</h2>
+    </div>
+    <div className="underline"></div>
+    <div className="jobs-center"></div>
+    <article className="job-info">
+      <h3>{title}</h3>
+      <h4>{company}</h4>
+      <p className="job-date">{dates}</p>
+      {duties.map((item, index)=>{
+        return(
+          <div className="job-desc">
+            <FaAngleDoubleRight/>
+            <p key={index}>{item}</p>
+          </div>
+          
+        
+        )
+      })}
+
+    </article>
+  </section>
+)};
 export default App;
-
-
-
-
-
-
-
-
-
